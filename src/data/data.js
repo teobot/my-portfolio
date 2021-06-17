@@ -1,12 +1,13 @@
 // image import
 import toffy from "../img/toffyWide.png";
 import coffida from "../img/coffida2.png"
+import typeincat from "../img/typeincat.png";
 
 // my Email
 export const email = "theoclapperton@outlook.com";
 
 // fullname
-export const fullname = "Theo Jed Barber Clapperton";
+export const fullname = "Theo Clapperton";
 
 // Github link
 export const github_link = "https://github.com/teobot";
@@ -42,5 +43,13 @@ export const projects = [
     tags: ["All", "MOBILE DEVELOPMENT"],
     slug: "coffida-mobile-app",
     readme: "https://raw.githubusercontent.com/teobot/18055445-coffida-mobile-app/main/README.md"
+  },
+    {
+    header: "TypeInCat - Typography App",
+    header_sub: "A fun typography web app",
+    image: typeincat,
+    tags: ["All", "WEB"],
+    slug: "type-in-cat-app",
+    readme: "https://raw.githubusercontent.com/teobot/typeInCat/main/README.md"
   },
 ];

@@ -15,7 +15,15 @@ export default function ProjectDisplayCard({ project }) {
 
   const { image, header, header_sub, slug } = project;
 
-  let history = useHistory()
+  let history = useHistory();
+
+  const cardDimensions = {
+    height: windowWidth > 600 ? windowHeight / 2 : windowHeight / 4,
+    width: "100%",
+    maxWidth: 1130,
+    minWidth: "100%",
+    marginBottom: windowWidth > 600 ? 75 : 35,
+  };
 
   return (
     <Fade>
@@ -28,17 +36,14 @@ export default function ProjectDisplayCard({ project }) {
           setMouseHover(false);
         }}
         onClick={() => {
-          history.push(`/p/${slug}`)
+          history.push(`/p/${slug}`);
         }}
         style={{
           width: "100%",
-          height: windowHeight / 2,
-          marginBottom: 75,
+          height: cardDimensions.height,
+          marginBottom: cardDimensions.marginBottom,
           backgroundColor: "whitesmoke",
           cursor: "pointer",
-          maxWidth: 1130,
-          maxHeight: 565,
-          minHeight: 400,
           borderRadius: 8,
           position: "relative",
         }}

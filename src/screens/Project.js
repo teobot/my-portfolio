@@ -27,8 +27,6 @@ export default function Project() {
 
   let history = useHistory();
 
-  console.log(project);
-
   const loadReadme = async () => {
     await fetch(project.readme)
       .then((r) => r.text())

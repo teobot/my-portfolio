@@ -36,8 +36,6 @@ function App() {
 
   const [filter, setFilter] = useState(filter_tags[0]);
 
-  console.log({ windowWidth, windowHeight });
-
   return (
     <div
       className="App"
@@ -59,7 +57,7 @@ function App() {
                 </Header>
               </Segment>
               <Segment vertical>
-                <List bulleted horizontal>
+                <List bulleted horizontal={windowWidth > 500}>
                   <List.Item as="a" href={`mailto:${email}`}>
                     <Icon name="mail" />
                     {email}
@@ -75,9 +73,11 @@ function App() {
                 </List>
               </Segment>
             </Grid.Column>
-            <Grid.Column width={2}>
-              <Image src={profile} circular />
-            </Grid.Column>
+            {windowWidth > 650 ? (
+              <Grid.Column width={2}>
+                <Image src={profile} circular />
+              </Grid.Column>
+            ) : null}
           </Grid.Row>
         </Grid>
       </Container>
@@ -117,7 +117,8 @@ function App() {
         <Divider />
         <Segment>
           <Header as="h3">
-            Want to see the smaller projects that didn't get the same attention? 😧
+            Want to see the smaller projects that didn't get the same attention?
+            😧
             <Header.Subheader>
               Take a look{" "}
               <a

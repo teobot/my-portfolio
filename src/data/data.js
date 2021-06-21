@@ -57,7 +57,7 @@ export const projects = [
     header: "Android Client Server App",
     header_sub: "1-day Hackathon Android App for train stations.",
     image: trainStationApp,
-    tags: ["MOBILE DEVELOPMENT", "JAVA"],
+    tags: ["All", "MOBILE DEVELOPMENT", "JAVA"],
     slug: "android-client-server-app",
     readme: "https://raw.githubusercontent.com/teobot/Android-Client-Server-App/main/README.md"
 },

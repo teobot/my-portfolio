@@ -2,6 +2,7 @@
 import toffy from "../img/toffyWide.png";
 import coffida from "../img/coffida2.png"
 import typeincat from "../img/typeincat.png";
+import trainStationApp from "../img/train-station-app.png"
 
 // my Email
 export const email = "theoclapperton@outlook.com";
@@ -23,7 +24,7 @@ export const button_colours =
   );
 
 // filter tags
-export const filter_tags = ["All", "MOBILE DEVELOPMENT", "WEB"];
+export const filter_tags = ["All", "MOBILE DEVELOPMENT", "JAVA", "WEB"];
 
 // project data
   // 1130 x 565 , closest ratio  2 : 1, use this 2230 x 1130
@@ -52,4 +53,12 @@ export const projects = [
     slug: "type-in-cat-app",
     readme: "https://raw.githubusercontent.com/teobot/typeInCat/main/README.md"
   },
+  {
+    header: "Android Client Server App",
+    header_sub: "1-day Hackathon Android App for train stations.",
+    image: trainStationApp,
+    tags: ["MOBILE DEVELOPMENT", "JAVA"],
+    slug: "android-client-server-app",
+    readme: "https://raw.githubusercontent.com/teobot/Android-Client-Server-App/main/README.md"
+},
 ];

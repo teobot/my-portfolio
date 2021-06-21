@@ -1,4 +1,5 @@
 # My Portfolio
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9859c886-9b0c-4891-b7cb-0f3229d3871a/deploy-status)](https://app.netlify.com/sites/theoclapperton-portfolio/deploys)
 
 ## Live
 - Currently being deployed at https://theoclapperton-portfolio.netlify.app/

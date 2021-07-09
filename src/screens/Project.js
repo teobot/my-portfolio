@@ -2,15 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useHistory, useParams } from "react-router";
 
-import {
-  Container,
-  Divider,
-  Header,
-  Segment,
-  Menu,
-  Icon,
-  Image,
-} from "semantic-ui-react";
+import { Container, Divider, Menu, Icon } from "semantic-ui-react";
 
 import { projects } from "../data/data";
 
@@ -45,7 +37,7 @@ export default function Project() {
         <Menu.Menu position="left">
           <Menu.Item
             onClick={() => {
-              history.goBack();
+              history.push("/");
             }}
           >
             <img alt="male with short hair wearing a suit" src={profile} />
@@ -60,7 +52,7 @@ export default function Project() {
           <Menu.Item
             name="features"
             onClick={() => {
-              history.goBack();
+              history.push("/");
             }}
           >
             <Icon name="close" />

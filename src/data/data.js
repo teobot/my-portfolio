@@ -2,7 +2,8 @@
 import toffy from "../img/toffyWide.png";
 import coffida from "../img/coffida2.png"
 import typeincat from "../img/typeincat.png";
-import trainStationApp from "../img/train-station-app.png"
+import trainStationApp from "../img/train-station-app.png";
+import gameGuide from "../img/GameGuide-min.png";
 
 // my Email
 export const email = "theoclapperton@outlook.com";
@@ -24,7 +25,7 @@ export const button_colours =
   );
 
 // filter tags
-export const filter_tags = ["All", "MOBILE DEVELOPMENT", "JAVA", "WEB"];
+export const filter_tags = ["All", "MOBILE DEVELOPMENT", "JAVA", "WEB", "PHP"];
 
 // project data
   // 1130 x 565 , closest ratio  2 : 1, use this 2230 x 1130
@@ -60,5 +61,13 @@ export const projects = [
     tags: ["All", "MOBILE DEVELOPMENT", "JAVA"],
     slug: "android-client-server-app",
     readme: "https://raw.githubusercontent.com/teobot/Android-Client-Server-App/main/README.md"
-},
+  },
+  {
+     header: "GameGuide",
+     header_sub: "A PHP game review website.",
+     image: gameGuide,
+     tags: ["All", "WEB", "PHP"],
+     slug: "game-guide",
+     readme: "https://raw.githubusercontent.com/teobot/GameGuide/master/readme.md"
+  },
 ];

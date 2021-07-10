@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import { useHistory, useParams } from "react-router";
 
-import { Container, Divider, Menu, Icon } from "semantic-ui-react";
+import { Divider, Menu, Icon } from "semantic-ui-react";
 
 import { projects } from "../data/data";
+
+import useDimensions from "../context/useDimensions";
 
 import profile from "../img/profile.jpg";
 
@@ -12,6 +14,8 @@ import ReactMarkdown from "react-markdown";
 
 export default function Project() {
   let { id } = useParams();
+
+  const { windowWidth, windowHeight } = useDimensions();
 
   const project = projects.find((element) => element.slug === id);
 
@@ -60,12 +64,14 @@ export default function Project() {
         </Menu.Menu>
       </Menu>
 
-      <Container
+      <div
         style={{
           boxShadow:
             "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
           padding: 25,
           backgroundColor: "white",
+          width: windowWidth > 1000 ? "75%" : windowWidth > 750 ? "86%" : "98%",
+          margin: "0 auto"
         }}
       >
         <ReactMarkdown
@@ -76,7 +82,7 @@ export default function Project() {
           }}
           children={readme}
         />
-      </Container>
+      </div>
       <Divider hidden />
     </>
   );

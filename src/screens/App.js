@@ -89,19 +89,22 @@ function App() {
           padding: "0px 50px",
         }}
       >
-        {filter_tags.map((tag) => {
-          return (
-            <Button
-              onClick={() => {
-                setFilter(tag);
-              }}
-              basic={filter !== tag}
-              color="blue"
-            >
-              {tag}
-            </Button>
-          );
-        })}
+        <div style={{ textAlign: "center" }}>
+          {filter_tags.map((tag) => {
+            return (
+              <Button
+                style={{ margin: 5 }}
+                onClick={() => {
+                  setFilter(tag);
+                }}
+                basic={filter !== tag}
+                color="blue"
+              >
+                {tag}
+              </Button>
+            );
+          })}
+        </div>
       </div>
 
       <Divider hidden />

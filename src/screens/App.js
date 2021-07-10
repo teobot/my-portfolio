@@ -1,6 +1,4 @@
-import { createContext, useState } from "react";
-
-import "../css/App.css";
+import { useState } from "react";
 
 import "semantic-ui-css/semantic.min.css";
 
@@ -106,9 +104,10 @@ function App() {
         })}
       </div>
 
-      <Container style={{ padding: "50px 0px" }}>
+      <Divider hidden />
+
+      <Container>
         {projects.map((project) => {
-          console.log(project);
           if (!project.tags.includes(filter)) {
             return null;
           }
@@ -131,6 +130,7 @@ function App() {
             </Header.Subheader>
           </Header>
         </Segment>
+        <Divider hidden section />
       </Container>
     </div>
   );

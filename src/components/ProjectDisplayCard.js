@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import "../css/animate.min.css";
 import "../css/projectDisplayCard.css";
 
 import { Header, Transition } from "semantic-ui-react";
@@ -7,8 +8,6 @@ import { Header, Transition } from "semantic-ui-react";
 import useDimensions from "../context/useDimensions";
 
 import { useHistory } from "react-router";
-
-import { useSpring, animated } from "react-spring";
 
 export default function ProjectDisplayCard({ project }) {
   const { windowWidth, windowHeight } = useDimensions();
@@ -22,13 +21,6 @@ export default function ProjectDisplayCard({ project }) {
 
   const ref = useRef();
 
-  const fadeIn = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    config: { duration: 1000 },
-  });
-
   useEffect(() => {
     if (ref.current.clientWidth) {
       setDivHeight(ref.current.clientWidth / 2);
@@ -36,9 +28,9 @@ export default function ProjectDisplayCard({ project }) {
   }, [windowWidth]);
 
   return (
-    <animated.div
+    <div
       ref={ref}
-      className="projectDisplayCard"
+      className="animate__animated animate__fadeIn projectDisplayCard"
       onMouseEnter={() => {
         setMouseHover(true);
       }}
@@ -49,7 +41,6 @@ export default function ProjectDisplayCard({ project }) {
         history.push(`/p/${slug}`);
       }}
       style={{
-        ...fadeIn,
         height: divHeight,
         width: "100%",
         minWidth: "100%",
@@ -96,6 +87,6 @@ export default function ProjectDisplayCard({ project }) {
           </div>
         </div>
       </Transition>
-    </animated.div>
+    </div>
   );
 }

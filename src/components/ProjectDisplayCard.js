@@ -8,7 +8,7 @@ import useDimensions from "../context/useDimensions";
 
 import { useHistory } from "react-router";
 
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from "react-spring";
 
 export default function ProjectDisplayCard({ project }) {
   const { windowWidth, windowHeight } = useDimensions();
@@ -22,7 +22,12 @@ export default function ProjectDisplayCard({ project }) {
 
   const ref = useRef();
 
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } })
+  const fadeIn = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    config: { duration: 1000 },
+  });
 
   useEffect(() => {
     if (ref.current.clientWidth) {
@@ -31,7 +36,7 @@ export default function ProjectDisplayCard({ project }) {
   }, [windowWidth]);
 
   return (
-    <div
+    <animated.div
       ref={ref}
       className="projectDisplayCard"
       onMouseEnter={() => {
@@ -44,6 +49,7 @@ export default function ProjectDisplayCard({ project }) {
         history.push(`/p/${slug}`);
       }}
       style={{
+        ...fadeIn,
         height: divHeight,
         width: "100%",
         minWidth: "100%",
@@ -90,6 +96,6 @@ export default function ProjectDisplayCard({ project }) {
           </div>
         </div>
       </Transition>
-    </div>
+    </animated.div>
   );
 }

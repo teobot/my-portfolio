@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { useHistory, useParams } from "react-router";
 
@@ -16,12 +16,16 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
+import { ThemeContext } from "../context/ThemeContext";
+
 const EXCLUDE_TAGS = ["Netlify Status", "Version"];
 
 export default function Project() {
   let { id } = useParams();
 
   const { windowWidth, windowHeight } = useDimensions();
+
+  const { darkMode, theme } = useContext(ThemeContext);
 
   const project = projects.find((element) => element.slug === id);
 
@@ -43,7 +47,7 @@ export default function Project() {
 
   return (
     <>
-      <Menu stackable>
+      <Menu stackable inverted={darkMode}>
         <Menu.Menu position="left">
           <Menu.Item
             onClick={() => {
@@ -75,7 +79,7 @@ export default function Project() {
           boxShadow:
             "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
           padding: 25,
-          backgroundColor: "white",
+          backgroundColor: theme.backgroundColor,
           width: windowWidth > 1000 ? "75%" : windowWidth > 750 ? "86%" : "98%",
           margin: "0 auto",
         }}
@@ -86,24 +90,50 @@ export default function Project() {
               if (EXCLUDE_TAGS.includes(props.alt)) {
                 return <Image {...props} spaced />;
               } else {
-                console.log(props);
-
                 return (
                   <Image alt="" style={{ maxWidth: "100%" }} {...props} fluid />
                 );
               }
             },
-            h1: ({ node, ...props }) => <Header {...props} as="h1" />,
-            h2: ({ node, ...props }) => <Header {...props} as="h2" dividing />,
-            h3: ({ node, ...props }) => <Header {...props} as="h3" />,
-            h4: ({ node, ...props }) => <Header {...props} as="h4" />,
-            h5: ({ node, ...props }) => <Header {...props} as="h5" />,
-            h6: ({ node, ...props }) => <Header {...props} as="h6" />,
+            h1: ({ node, ...props }) => (
+              <Header {...props} as="h1" inverted={darkMode} />
+            ),
+            h2: ({ node, ...props }) => (
+              <Header {...props} as="h2" dividing inverted={darkMode} />
+            ),
+            h3: ({ node, ...props }) => (
+              <Header {...props} as="h3" inverted={darkMode} />
+            ),
+            h4: ({ node, ...props }) => (
+              <Header {...props} as="h4" inverted={darkMode} />
+            ),
+            h5: ({ node, ...props }) => (
+              <Header {...props} as="h5" inverted={darkMode} />
+            ),
+            h6: ({ node, ...props }) => (
+              <Header {...props} as="h6" inverted={darkMode} />
+            ),
             ol: ({ node, ...props }) => {
-              return <List as="ol" {...props} ordered />;
+              return (
+                <List
+                  as="ol"
+                  {...props}
+                  ordered
+                  inverted={darkMode}
+                  style={{ color: theme.text }}
+                />
+              );
             },
             ul: ({ node, ...props }) => {
-              return <List as="ul" {...props} bulleted />;
+              return (
+                <List
+                  as="ul"
+                  {...props}
+                  bulleted
+                  inverted={darkMode}
+                  style={{ color: theme.text }}
+                />
+              );
             },
             code: ({ node, ...props }) => {
               if (props.inline) {
@@ -123,6 +153,12 @@ export default function Project() {
                 return <SyntaxHighlighter {...props} style={docco} />;
               }
             },
+            strong: ({ node, ...props }) => {
+              return <strong {...props} style={{ color: theme.text }} />;
+            },
+            em: ({node, ...props}) => {
+                return <em {...props} style={{color: theme.text}}/>
+            }
           }}
           children={readme}
         />

@@ -3,28 +3,31 @@ import ReactDOM from "react-dom";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import "./css/index.css";
-
 import App from "./screens/App";
 import Project from "./screens/Project";
 
-import useDarkModeContext, { DarkModeContext } from "./context/ThemeContext";
+import useThemeContext, { ThemeContext } from "./context/ThemeContext";
 
 const Index = () => {
-  const [ThemeContextValues] = useDarkModeContext();
+  const [ThemeContextValues] = useThemeContext();
+  console.log(ThemeContextValues);
   return (
-    <DarkModeContext.Provider value={ThemeContextValues}>
-      <Router>
-        <Switch>
-          <Route path="/p/:id">
-            <Project />
-          </Route>
-          <Route path="/">
-            <App />
-          </Route>
-        </Switch>
-      </Router>
-    </DarkModeContext.Provider>
+    <ThemeContext.Provider value={ThemeContextValues}>
+      <div
+        style={{ backgroundColor: ThemeContextValues.theme.backgroundColor }}
+      >
+        <Router>
+          <Switch>
+            <Route path="/p/:id">
+              <Project />
+            </Route>
+            <Route path="/">
+              <App />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
   );
 };
 

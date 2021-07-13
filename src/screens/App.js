@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import "semantic-ui-css/semantic.min.css";
 
@@ -14,6 +14,8 @@ import {
   Divider,
   Button,
 } from "semantic-ui-react";
+
+import { ThemeContext } from "../context/ThemeContext";
 
 import useDimensions from "../context/useDimensions";
 
@@ -34,17 +36,23 @@ function App() {
 
   const [filter, setFilter] = useState(filter_tags[0]);
 
+  const { darkMode, theme } = useContext(ThemeContext);
+
   return (
     <div
       className="App"
-      style={{ paddingTop: windowHeight / 30, minHeight: windowHeight }}
+      style={{
+        paddingTop: windowHeight / 30,
+        minHeight: windowHeight,
+        backgroundColor: theme.backgroundColor,
+      }}
     >
       <Container>
-        <Grid>
+        <Grid inverted={darkMode}>
           <Grid.Row>
             <Grid.Column width={14} verticalAlign="middle">
-              <Segment vertical>
-                <Header>
+              <Segment vertical style={{borderBottom: `1px solid ${theme.text}`}}>
+                <Header inverted={darkMode}>
                   <Header.Content>
                     {fullname}
                     <Header.Subheader>
@@ -55,7 +63,11 @@ function App() {
                 </Header>
               </Segment>
               <Segment vertical>
-                <List bulleted horizontal={windowWidth > 500}>
+                <List
+                  bulleted
+                  horizontal={windowWidth > 500}
+                  inverted={darkMode}
+                >
                   <List.Item as="a" href={`mailto:${email}`}>
                     <Icon name="mail" />
                     {email}
@@ -117,8 +129,8 @@ function App() {
           return <ProjectDisplayCard project={project} />;
         })}
         <Divider />
-        <Segment>
-          <Header as="h3">
+        <Segment inverted={darkMode}>
+          <Header as="h3" inverted={darkMode}>
             Want to see the smaller projects that didn't get the same attention?
             😧
             <Header.Subheader>

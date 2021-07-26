@@ -44,7 +44,7 @@ export default function MainScreen() {
           padding: windowWidth / 10,
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
         <Segment basic>
@@ -60,7 +60,9 @@ export default function MainScreen() {
             </span>
           </Header>
         </Segment>
-        <Divider style={{ width: "100%" }} section />
+        <Divider
+          style={{ width: "100%", margin: mobile ? "0.5rem" : "1rem" }}
+        />
         <Segment
           basic
           style={{
@@ -85,7 +87,10 @@ export default function MainScreen() {
             );
           })}
         </Segment>
-        <Divider style={{ width: "100%" }} hidden />
+        <Divider
+          style={{ width: "100%", margin: mobile ? "0.5rem" : "1rem" }}
+          hidden
+        />
         <Segment
           basic
           style={{
@@ -120,14 +125,17 @@ export default function MainScreen() {
             );
           })}
         </Segment>
-
-        <Divider style={{ width: "100%" }} hidden />
-
+        <Divider
+          style={{ width: "100%", margin: mobile ? "0.5rem" : "1rem" }}
+          hidden
+        />
         <div
           style={{
             width: "100%",
             display: "flex",
-            ...(!mobile ? { justifyContent: "space-between" } : {padding: 15, overflowX : "auto"}),
+            ...(!mobile
+              ? { justifyContent: "space-between" }
+              : { padding: 15, overflowX: "auto" }),
           }}
         >
           {DATA.INTERNAL_LINKS.map(
@@ -144,7 +152,9 @@ export default function MainScreen() {
                   style={{
                     marginRight: mobile ? 15 : 0,
                     position: "relative",
-                    boxShadow: mobile ? null : "0px 0px 15px 15px rgba(0, 0, 0, 0.15)",
+                    boxShadow: mobile
+                      ? null
+                      : "0px 0px 15px 15px rgba(0, 0, 0, 0.15)",
                     height: OPTIONS.INTERNAL_LINKS_OPTIONS.height,
                     minWidth:
                       (OPTIONS.INTERNAL_LINKS_OPTIONS.height /

@@ -47,33 +47,6 @@ export default function Project() {
 
   return (
     <>
-      <Menu stackable inverted={darkMode}>
-        <Menu.Menu position="left">
-          <Menu.Item
-            onClick={() => {
-              history.push("/");
-            }}
-          >
-            <img alt="male with short hair wearing a suit" src={profile} />
-          </Menu.Item>
-
-          <Menu.Item name="features" style={{ fontWeight: "bolder" }}>
-            {project.header}
-          </Menu.Item>
-        </Menu.Menu>
-
-        <Menu.Menu position="right">
-          <Menu.Item
-            name="features"
-            onClick={() => {
-              history.push("/");
-            }}
-          >
-            <Icon name="close" />
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-
       <div
         style={{
           boxShadow:
@@ -156,9 +129,9 @@ export default function Project() {
             strong: ({ node, ...props }) => {
               return <strong {...props} style={{ color: theme.text }} />;
             },
-            em: ({node, ...props}) => {
-                return <em {...props} style={{color: theme.text}}/>
-            }
+            em: ({ node, ...props }) => {
+              return <em {...props} style={{ color: theme.text }} />;
+            },
           }}
           children={readme}
         />

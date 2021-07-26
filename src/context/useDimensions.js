@@ -1,5 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
+
+export const WindowContext = createContext();
 
 export default () => {
   // This hook returns the window dimensions
@@ -18,5 +20,5 @@ export default () => {
     };
   }, []);
 
-  return { windowWidth, windowHeight };
+  return [{ windowWidth, windowHeight }];
 };

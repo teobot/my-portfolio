@@ -26,6 +26,8 @@ export default function MainScreen() {
 
   let history = useHistory();
 
+  const mobile = windowWidth < 600;
+
   return (
     <div
       className="App"
@@ -34,11 +36,12 @@ export default function MainScreen() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        overflow: "hidden",
       }}
     >
-      <div
+      <Container
         style={{
-          padding: 50,
+          padding: windowWidth / 10,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -49,7 +52,7 @@ export default function MainScreen() {
             as="h1"
             textAlign="center"
             inverted={darkMode}
-            style={{ fontSize: 68 }}
+            style={{ fontSize: mobile ? 48 : 68 }}
           >
             Hi, I'm{" "}
             <span style={{ color: "#FF5722", textDecoration: "underline" }}>
@@ -64,6 +67,7 @@ export default function MainScreen() {
             width: "100%",
             display: "flex",
             justifyContent: "space-between",
+            flexDirection: mobile ? "column" : "row",
             padding: 0,
           }}
         >
@@ -88,6 +92,7 @@ export default function MainScreen() {
             width: "100%",
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center",
             padding: 0,
           }}
         >
@@ -98,6 +103,8 @@ export default function MainScreen() {
                   style={{
                     ...OPTIONS.SKILL_STYLE_TEXT,
                     color: darkMode ? "#E0E0E0" : "#434850",
+                    textAlign: "center",
+                    lineHeight: 1.05,
                   }}
                 >
                   {text}
@@ -120,7 +127,7 @@ export default function MainScreen() {
           style={{
             width: "100%",
             display: "flex",
-            justifyContent: "space-between",
+            ...(!mobile ? { justifyContent: "space-between" } : {padding: 15, overflowX : "auto"}),
           }}
         >
           {DATA.INTERNAL_LINKS.map(
@@ -135,10 +142,11 @@ export default function MainScreen() {
                       : null
                   }
                   style={{
+                    marginRight: mobile ? 15 : 0,
                     position: "relative",
-                    boxShadow: "0px 0px 15px 15px rgba(0, 0, 0, 0.15)",
+                    boxShadow: mobile ? null : "0px 0px 15px 15px rgba(0, 0, 0, 0.15)",
                     height: OPTIONS.INTERNAL_LINKS_OPTIONS.height,
-                    width:
+                    minWidth:
                       (OPTIONS.INTERNAL_LINKS_OPTIONS.height /
                         OPTIONS.INTERNAL_LINKS_OPTIONS.ratio[1]) *
                       OPTIONS.INTERNAL_LINKS_OPTIONS.ratio[0],
@@ -229,7 +237,7 @@ export default function MainScreen() {
             }
           )}
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

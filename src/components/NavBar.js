@@ -18,7 +18,7 @@ export default function NavBar({ project_title }) {
         backgroundColor: theme.navbarColor,
         margin: 0,
         borderRadius: 0,
-        zIndex: 1,
+        zIndex: 2,
       }}
     >
       <Menu.Item

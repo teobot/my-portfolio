@@ -4,6 +4,7 @@ import coffida from "../img/coffida2.png";
 import typeincat from "../img/typeincat.png";
 import trainStationApp from "../img/train-station-app.png";
 import gameGuide from "../img/GameGuide-min.png";
+import javaWeb from "../img/Javaweb-min.png";
 
 // Return home screen path data
 export const returnHomeJSON = (title, path, color) => {
@@ -82,6 +83,16 @@ export const projects = [
     slug: "game-guide",
     readme:
       "https://raw.githubusercontent.com/teobot/GameGuide/master/readme.md",
+  },
+  {
+    header: "Java Web Service API",
+    header_sub: "A Java written web API.",
+    image: javaWeb,
+    tags: ["All", "WEB", "JAVA"],
+    langs: ["JAVA", "MVC", "React"],
+    slug: "java-web-service",
+    readme:
+      "https://raw.githubusercontent.com/teobot/Enterprise-Programming-Web-Service/main/README.md",
   },
 ];
 

@@ -40,7 +40,11 @@ function App() {
 
   const { darkMode, theme } = useContext(ThemeContext);
 
-  const half = Math.ceil(projects.length / 2);
+  const displayProjects = projects.filter((e) => {
+    return e.tags.includes(filter);
+  });
+
+  const half = Math.ceil(displayProjects.length / 2);
 
   return (
     <div
@@ -87,20 +91,16 @@ function App() {
       <Container style={{ overflowY: "auto" }}>
         <Grid columns="2" stackable doubling>
           <Grid.Column>
-            {projects.slice(half, projects.length).map((project) => {
-              if (!project.tags.includes(filter)) {
-                return null;
-              }
+            {displayProjects.slice(0, half).map((project) => {
               return <ProjectDisplayCard project={project} />;
             })}
           </Grid.Column>
           <Grid.Column>
-            {projects.slice(0, half).map((project) => {
-              if (!project.tags.includes(filter)) {
-                return null;
-              }
-              return <ProjectDisplayCard project={project} />;
-            })}
+            {displayProjects
+              .slice(half, displayProjects.length)
+              .map((project) => {
+                return <ProjectDisplayCard project={project} />;
+              })}
           </Grid.Column>
         </Grid>
 

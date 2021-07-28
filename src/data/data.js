@@ -22,7 +22,7 @@ export const github_link = "https://github.com/teobot";
 
 // Linkedin link
 export const linkedin_link =
-  "https://www.linkedin.com/in/theo-clapperton-6aa916121/";
+  "https://www.linkedin.com/in/theoclapperton/";
 
 // Buttons colors
 export const button_colours =

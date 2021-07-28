@@ -6,10 +6,11 @@ import { Menu, Dropdown, Checkbox, Icon } from "semantic-ui-react";
 
 import { ThemeContext } from "../context/ThemeContext";
 
-export default function NavBar() {
+export default function NavBar({ project_title }) {
   const { darkMode, theme, toggleDarkMode } = useContext(ThemeContext);
 
   let history = useHistory();
+
   return (
     <Menu
       inverted={darkMode}
@@ -26,7 +27,18 @@ export default function NavBar() {
         }}
       ></Menu.Item>
 
+      {project_title ? <Menu.Item>{project_title}</Menu.Item> : null}
+
       <Menu.Menu position="right">
+        {project_title ? (
+          <Menu.Item
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            Go Back
+          </Menu.Item>
+        ) : null}
         <Dropdown item icon="wrench" simple>
           <Dropdown.Menu>
             <Dropdown.Header>Settings</Dropdown.Header>

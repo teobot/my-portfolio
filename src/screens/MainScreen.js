@@ -150,7 +150,7 @@ export default function MainScreen() {
                       : null
                   }
                   style={{
-                    marginRight: mobile ? 15 : 0,
+                    marginRight: mobile ? OPTIONS.INTERNAL_LINKS_OPTIONS.height / 4 : 0,
                     position: "relative",
                     boxShadow: mobile
                       ? null

@@ -16,7 +16,7 @@ import {
 
 import { ThemeContext } from "../context/ThemeContext";
 
-import useDimensions from "../context/useDimensions";
+import { WindowContext } from "../context/useDimensions";
 
 import {
   email,
@@ -28,9 +28,10 @@ import {
 } from "../data/data";
 
 import ProjectDisplayCard from "../components/ProjectDisplayCard";
+import NavBar from "../components/NavBar";
 
 function App() {
-  const { windowWidth, windowHeight } = useDimensions();
+  const { windowWidth, windowHeight } = useContext(WindowContext);
 
   const [filter, setFilter] = useState(filter_tags[0]);
   const [active, setActive] = useState(true);
@@ -46,6 +47,10 @@ function App() {
         overflowY: "auto",
       }}
     >
+      <NavBar project_title={null} />
+
+      <Divider hidden />
+
       <Container style={{ paddingTop: windowHeight / 30 }}>
         <div
           style={{
@@ -72,21 +77,6 @@ function App() {
             })}
           </div>
         </div>
-
-        <Accordion styled fluid inverted={darkMode}>
-          <Accordion.Title active={active}>
-            <Icon name="dropdown" />
-            What is a dog?
-          </Accordion.Title>
-          <Accordion.Content>
-            <p>
-              A dog is a type of domesticated animal. Known for its loyalty and
-              faithfulness, it can be found as a welcome guest in many
-              households across the world.
-            </p>
-          </Accordion.Content>
-        </Accordion>
-
       </Container>
 
       <Divider hidden />

@@ -21,6 +21,11 @@ export default function ProjectDisplayCard({ project }) {
 
   const ref = useRef();
 
+  const StyleSheet = {
+    height: divHeight,
+    width: "100%"
+  }
+
   useEffect(() => {
     if (ref.current.clientWidth) {
       setDivHeight(ref.current.clientWidth / 2);
@@ -41,10 +46,10 @@ export default function ProjectDisplayCard({ project }) {
         history.push(`/p/${slug}`);
       }}
       style={{
-        height: divHeight,
-        width: "100%",
-        minWidth: "100%",
-        maxWidth: "100%",
+        height: StyleSheet.height,
+        width: StyleSheet.width,
+        minWidth: StyleSheet.width,
+        maxWidth: StyleSheet.width,
         marginBottom: 50,
         cursor: "pointer",
         borderRadius: 8,

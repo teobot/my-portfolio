@@ -210,7 +210,7 @@ export default function Project() {
               );
             },
             table: ({ node, ...props }) => {
-              return <Table {...props} striped stackable inverted />;
+              return <Table {...props} striped stackable inverted compact={windowWidth < 600} />;
             },
           }}
           children={readme}

@@ -5,24 +5,20 @@ import { useHistory } from "react-router-dom";
 import {
   Container,
   Header,
-  List,
   Divider,
   Icon,
-  Flag,
-  Grid,
   Segment,
   Button,
-  Card,
 } from "semantic-ui-react";
 
-import { ThemeContext } from "../context/ThemeContext";
+import MorphBlob from "../components/MorphBlob";
+
 import { WindowContext } from "../context/useDimensions";
 
-import { email, fullname, DATA, OPTIONS } from "../data/data";
+import { fullname, DATA, OPTIONS } from "../data/data";
 
 export default function MainScreen() {
   const { windowWidth, windowHeight } = useContext(WindowContext);
-  const { darkMode, theme } = useContext(ThemeContext);
 
   let history = useHistory();
 
@@ -39,6 +35,7 @@ export default function MainScreen() {
         overflow: "hidden",
       }}
     >
+      <MorphBlob />
       <Container
         style={{
           padding: windowWidth / 10,
@@ -51,7 +48,6 @@ export default function MainScreen() {
           <Header
             as="h1"
             textAlign="center"
-            inverted={darkMode}
             style={{ fontSize: mobile ? 48 : 68 }}
           >
             Hi, I'm{" "}
@@ -75,14 +71,8 @@ export default function MainScreen() {
         >
           {DATA.EXTERNAL_LINKS.map(({ text, to, color }) => {
             return (
-              <Button
-                basic
-                color={color}
-                size={OPTIONS.BUTTON_SIZE}
-                as="a"
-                href={to}
-              >
-                <span style={{ color: theme.text }}>{text}</span>
+              <Button color={color} size={OPTIONS.BUTTON_SIZE} as="a" href={to}>
+                {text}
               </Button>
             );
           })}
@@ -107,7 +97,7 @@ export default function MainScreen() {
                 <div
                   style={{
                     ...OPTIONS.SKILL_STYLE_TEXT,
-                    color: darkMode ? "#E0E0E0" : "#434850",
+                    color: "#E0E0E0",
                     textAlign: "center",
                     lineHeight: 1.05,
                   }}
@@ -116,7 +106,7 @@ export default function MainScreen() {
                 </div>
                 {index !== DATA.QUICK_INFO.length - 1 ? (
                   <div
-                    style={{ fontSize: 32, color: OPTIONS.BULLET_POINT_COLOR }}
+                    style={{ fontSize: 32, color: "#E0E0E0" }}
                   >
                     •
                   </div>
@@ -150,7 +140,9 @@ export default function MainScreen() {
                       : null
                   }
                   style={{
-                    marginRight: mobile ? OPTIONS.INTERNAL_LINKS_OPTIONS.height / 4 : 0,
+                    marginRight: mobile
+                      ? OPTIONS.INTERNAL_LINKS_OPTIONS.height / 4
+                      : 0,
                     position: "relative",
                     boxShadow: mobile
                       ? null

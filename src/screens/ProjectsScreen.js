@@ -12,6 +12,7 @@ import {
   Divider,
   Button,
   Accordion,
+  Grid,
 } from "semantic-ui-react";
 
 import { ThemeContext } from "../context/ThemeContext";
@@ -29,6 +30,7 @@ import {
 
 import ProjectDisplayCard from "../components/ProjectDisplayCard";
 import NavBar from "../components/NavBar";
+import MorphBlob from "../components/MorphBlob";
 
 function App() {
   const { windowWidth, windowHeight } = useContext(WindowContext);
@@ -38,20 +40,21 @@ function App() {
 
   const { darkMode, theme } = useContext(ThemeContext);
 
+  const half = Math.ceil(projects.length / 2);
+
   return (
     <div
       className="App"
       style={{
         display: "flex",
         flexDirection: "column",
-        overflowY: "auto",
       }}
     >
       <NavBar project_title={null} />
 
-      <Divider hidden />
+      <MorphBlob />
 
-      <Container style={{ paddingTop: windowHeight / 30 }}>
+      <Container style={{ paddingTop: windowHeight / 30, zIndex: 1 }}>
         <div
           style={{
             display: "flex",
@@ -68,8 +71,8 @@ function App() {
                   onClick={() => {
                     setFilter(tag);
                   }}
-                  basic={filter !== tag}
-                  color="blue"
+                  primary
+                  secondary={filter === tag}
                 >
                   {tag}
                 </Button>
@@ -81,13 +84,26 @@ function App() {
 
       <Divider hidden />
 
-      <Container>
-        {projects.map((project) => {
-          if (!project.tags.includes(filter)) {
-            return null;
-          }
-          return <ProjectDisplayCard project={project} />;
-        })}
+      <Container style={{ overflowY: "auto" }}>
+        <Grid columns="2" stackable doubling>
+          <Grid.Column>
+            {projects.slice(half, projects.length).map((project) => {
+              if (!project.tags.includes(filter)) {
+                return null;
+              }
+              return <ProjectDisplayCard project={project} />;
+            })}
+          </Grid.Column>
+          <Grid.Column>
+            {projects.slice(0, half).map((project) => {
+              if (!project.tags.includes(filter)) {
+                return null;
+              }
+              return <ProjectDisplayCard project={project} />;
+            })}
+          </Grid.Column>
+        </Grid>
+
         <Divider />
         <Segment inverted={darkMode}>
           <Header as="h3" inverted={darkMode}>

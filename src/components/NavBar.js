@@ -13,11 +13,12 @@ export default function NavBar({ project_title }) {
 
   return (
     <Menu
-      inverted={darkMode}
+      inverted={true}
       style={{
         backgroundColor: theme.navbarColor,
         margin: 0,
         borderRadius: 0,
+        zIndex: 1,
       }}
     >
       <Menu.Item

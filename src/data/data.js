@@ -6,6 +6,7 @@ import trainStationApp from "../img/train-station-app.png";
 import gameGuide from "../img/GameGuide-min.png";
 import javaWeb from "../img/Javaweb-min.png";
 import aircraftSced from "../img/aircraftsceduler-min.png"
+import pokemonBanner from "../img/pokemonBanner.png"
 
 // Return home screen path data
 export const returnHomeJSON = (title, path, color) => {
@@ -104,6 +105,16 @@ export const projects = [
     slug: "aircraft-scheduler",
     readme:
       "https://raw.githubusercontent.com/teobot/Airline-Scheduling-System/main/README.md",
+  },
+  {
+    header: "Pokemon Sprite Timeline",
+    header_sub: "A website for display the pokemon sprite versions over time.",
+    image: pokemonBanner,
+    tags: ["ALL", "WEB"],
+    langs: ["REACT", "HTML", "CSS"],
+    slug: "pokemon-sprite-timeline",
+    readme:
+      "https://raw.githubusercontent.com/teobot/pokemon-sprite-changes/main/README.md",
   },
 ];
 

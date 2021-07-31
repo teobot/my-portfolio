@@ -25,6 +25,7 @@ export default function App() {
         preserveAspectRatio="xMaxYMid slice"
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
+        transform={windowWidth > 1920 ? "scale(2)" : "scale(1)"}
       >
         <rect
           width={windowWidth}

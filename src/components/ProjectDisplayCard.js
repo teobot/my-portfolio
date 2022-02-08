@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { useHistory } from "react-router";
+
 import "../css/animate.min.css";
 import "../css/projectDisplayCard.css";
 
@@ -7,10 +9,8 @@ import { Header, Transition } from "semantic-ui-react";
 
 import useDimensions from "../context/useDimensions";
 
-import { useHistory } from "react-router";
-
 export default function ProjectDisplayCard({ project }) {
-  const { windowWidth, windowHeight } = useDimensions();
+  const { windowWidth } = useDimensions();
 
   const [mouseHover, setMouseHover] = useState(false);
   const [divHeight, setDivHeight] = useState(window.innerWidth / 3);
@@ -23,8 +23,8 @@ export default function ProjectDisplayCard({ project }) {
 
   const StyleSheet = {
     height: divHeight,
-    width: "100%"
-  }
+    width: "100%",
+  };
 
   useEffect(() => {
     if (ref.current.clientWidth) {

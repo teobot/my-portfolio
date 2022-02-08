@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { useHistory } from "react-router-dom";
 
-import { Menu, Dropdown, Checkbox, Icon } from "semantic-ui-react";
+import { Menu, Dropdown, Checkbox } from "semantic-ui-react";
 
 import { ThemeContext } from "../context/ThemeContext";
 

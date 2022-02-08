@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react";
 
 import { useHistory } from "react-router-dom";
 
-import { WindowContext } from "../../context/useDimensions";
-
-import { OPTIONS, DATA } from "../../data/data";
-
 import { Icon } from "semantic-ui-react";
+
+import { WindowContext } from "../../context/useDimensions";
+import { useData } from "../../context/DataContext";
 
 export default function InternalLinksContainer({ link }) {
   const { windowWidth } = useContext(WindowContext);
@@ -18,6 +17,8 @@ export default function InternalLinksContainer({ link }) {
   let history = useHistory();
 
   const [hover, setHover] = useState(false);
+
+  const {portfolioData, styleOptions} = useData();
 
   return (
     <div
@@ -31,16 +32,16 @@ export default function InternalLinksContainer({ link }) {
           : null
       }
       style={{
-        marginRight: mobile ? OPTIONS.INTERNAL_LINKS_OPTIONS.height / 4 : 0,
+        marginRight: mobile ? styleOptions.INTERNAL_LINKS_OPTIONS.height / 4 : 0,
         position: "relative",
         boxShadow: mobile
           ? null
           : `0px 0px 15px 15px rgba(0, 0, 0, ${hover ? "0.3" : "0.15"})`,
-        height: OPTIONS.INTERNAL_LINKS_OPTIONS.height,
+        height: styleOptions.INTERNAL_LINKS_OPTIONS.height,
         minWidth:
-          (OPTIONS.INTERNAL_LINKS_OPTIONS.height /
-            OPTIONS.INTERNAL_LINKS_OPTIONS.ratio[1]) *
-          OPTIONS.INTERNAL_LINKS_OPTIONS.ratio[0],
+          (styleOptions.INTERNAL_LINKS_OPTIONS.height /
+            styleOptions.INTERNAL_LINKS_OPTIONS.ratio[1]) *
+            styleOptions.INTERNAL_LINKS_OPTIONS.ratio[0],
         backgroundColor: color,
         display: "flex",
         alignItems: "center",
@@ -120,7 +121,7 @@ export default function InternalLinksContainer({ link }) {
             fontWeight: "bold",
           }}
         >
-          {DATA.NOT_READY_MESSAGE}
+          {portfolioData.homepage.notReadyMessage}
         </span>
       </div>
     </div>

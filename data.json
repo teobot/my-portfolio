@@ -1,0 +1,125 @@
+{
+  "myDetails": {
+    "email": "theoclapperton@outlook.com",
+    "fullname": "Theo Clapperton",
+    "githubLink": "https://github.com/teobot",
+    "linkedinLink": "https://www.linkedin.com/in/theoclapperton/"
+  },
+  "projects": [
+    {
+      "header": "Toffy - Tournament Organizer",
+      "header_sub": "A smart tournament organizer",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/toffyWide.png",
+      "tags": ["ALL", "WEB"],
+      "langs": ["HTML", "REACT", "NODEJS", "MONGODB", "EXPRESS", "MVC"],
+      "slug": "toffy-tournament-organizer",
+      "readme": "https://raw.githubusercontent.com/teobot/toffy/main/README.md"
+    },
+    {
+      "header": "Coffida - Coffee Review App",
+      "header_sub": "A coffee review mobile app",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/coffida2.png",
+      "tags": ["ALL", "MOBILE DEVELOPMENT"],
+      "langs": ["REACT NATIVE", "NODEJS", "MONGODB", "EXPRESS"],
+      "slug": "coffida-mobile-app",
+      "readme": "https://raw.githubusercontent.com/teobot/18055445-coffida-mobile-app/main/README.md"
+    },
+    {
+      "header": "TypeInCat - Typography App",
+      "header_sub": "A fun typography web app",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/typeincat.png",
+      "tags": ["ALL", "WEB"],
+      "langs": ["HTML", "CSS", "REACT"],
+      "slug": "type-in-cat-app",
+      "readme": "https://raw.githubusercontent.com/teobot/typeInCat/main/README.md"
+    },
+    {
+      "header": "Android Client Server App",
+      "header_sub": "1-day Hackathon Android App for train stations.",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/train-station-app.png",
+      "tags": ["ALL", "MOBILE DEVELOPMENT", "JAVA"],
+      "langs": ["JAVA"],
+      "slug": "android-client-server-app",
+      "readme": "https://raw.githubusercontent.com/teobot/Android-Client-Server-App/main/README.md"
+    },
+    {
+      "header": "GameGuide",
+      "header_sub": "A PHP game review website.",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/GameGuide-min.png",
+      "tags": ["ALL", "WEB", "PHP"],
+      "langs": ["PHP", "MVC"],
+      "slug": "game-guide",
+      "readme": "https://raw.githubusercontent.com/teobot/GameGuide/master/readme.md"
+    },
+    {
+      "header": "Java Web Service API",
+      "header_sub": "A Java written web API.",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/Javaweb-min.png",
+      "tags": ["ALL", "WEB", "JAVA"],
+      "langs": ["JAVA", "MVC", "React"],
+      "slug": "java-web-service",
+      "readme": "https://raw.githubusercontent.com/teobot/Enterprise-Programming-Web-Service/main/README.md"
+    },
+    {
+      "header": "Aircraft Scheduler",
+      "header_sub": "A Java written aircraft scheduler hill-climber.",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/aircraftsceduler-min.png",
+      "tags": ["ALL", "JAVA"],
+      "langs": ["JAVA", "MVC", "HILL CLIMBER"],
+      "slug": "aircraft-scheduler",
+      "readme": "https://raw.githubusercontent.com/teobot/Airline-Scheduling-System/main/README.md"
+    },
+    {
+      "header": "Pokemon Sprite Timeline",
+      "header_sub": "A website for display the pokemon sprite versions over time.",
+      "image": "https://raw.githubusercontent.com/teobot/bucket/main/portfolio/pokemonBanner.png",
+      "tags": ["ALL", "WEB"],
+      "langs": ["REACT", "HTML", "CSS"],
+      "slug": "pokemon-sprite-timeline",
+      "readme": "https://raw.githubusercontent.com/teobot/pokemon-sprite-changes/main/README.md"
+    }
+  ],
+  "homepage": {
+    "NOT_READY_MESSAGE": "📅 Coming Soon!",
+    "QUICK_INFO": ["Sofware Engineer", "Waterpolo Player"],
+    "EXTERNAL_LINKS": [
+      { "text": "GitHub", "to": "https://github.com/teobot", "color": "red" },
+      {
+        "text": "theoclapperton@outlook.com",
+        "to": "mailto:theoclapperton@outlook.com",
+        "color": "orange"
+      },
+      {
+        "text": "LinkedIn",
+        "to": "https://www.linkedin.com/in/theoclapperton/",
+        "color": "yellow"
+      }
+    ],
+    "INTERNAL_LINKS": [
+      {
+        "color": "#219653",
+        "subColor": "#27AE60",
+        "text": "Projects",
+        "icon": "code",
+        "to": "/projects",
+        "ready": true
+      },
+      {
+        "color": "#2F80ED",
+        "subColor": "#2D9CDB",
+        "text": "Blog",
+        "icon": "book",
+        "to": "/blog",
+        "ready": false
+      },
+      {
+        "color": "#9B51E0",
+        "subColor": "#BB6BD9",
+        "text": "Reviews",
+        "icon": "cloud",
+        "to": "/review",
+        "ready": false
+      }
+    ]
+  }
+}

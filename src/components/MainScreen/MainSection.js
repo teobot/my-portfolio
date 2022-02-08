@@ -9,14 +9,7 @@ const r = ["bounce", "rubberBand", "swing", "tada"];
 // This decides how long the text will wait before running the animation again.
 const ANIMATION_INTERVAL = 15; // 5 === 5 seconds
 
-export default function MainSection({
-  title,
-  color,
-  path,
-  windowWidth,
-  windowHeight,
-  index,
-}) {
+export default function MainSection({ title, color, path, index }) {
   let history = useHistory();
 
   const [updateRef, setUpdateRef] = useState(new Date());

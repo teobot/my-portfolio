@@ -1,19 +1,16 @@
 /* eslint-disable import/first */
 import React, { useContext, useEffect, useState } from "react";
 
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
 
 import {
   Divider,
-  Menu,
   Table,
   Image,
   Header,
   List,
   Container,
 } from "semantic-ui-react";
-
-import { projects } from "../data/data";
 
 import { WindowContext } from "../context/useDimensions";
 import { ThemeContext } from "../context/ThemeContext";
@@ -29,16 +26,24 @@ import Loader from "react-loader-spinner";
 
 import NavBar from "../components/NavBar";
 import MorphBlob from "../components/MorphBlob";
+import { useData } from "../context/DataContext";
 
 const EXCLUDE_TAGS = ["Netlify Status", "Version"];
 
 export default function Project() {
+  // params
   let { id } = useParams();
 
-  const { windowWidth, windowHeight } = useContext(WindowContext);
+  // useStates
+  const { windowWidth } = useContext(WindowContext);
   const { darkMode, theme } = useContext(ThemeContext);
 
-  const project = projects.find((element) => element.slug === id);
+  // useData
+  const { portfolioData } = useData();
+
+  const project = portfolioData?.projects.find(
+    (element) => element.slug === id
+  );
 
   const [readme, setReadme] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -210,7 +215,15 @@ export default function Project() {
               );
             },
             table: ({ node, ...props }) => {
-              return <Table {...props} striped stackable inverted compact={windowWidth < 600} />;
+              return (
+                <Table
+                  {...props}
+                  striped
+                  stackable
+                  inverted
+                  compact={windowWidth < 600}
+                />
+              );
             },
           }}
           children={readme}
